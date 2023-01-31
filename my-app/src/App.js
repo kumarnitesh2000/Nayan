@@ -4,6 +4,8 @@ import './App.css';
 import { Header } from './components/Header'
 import { Users } from './components/Users'
 import { DisplayBoard } from './components/DisplayBoard'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Contact} from "./components/Contact";
 import CreateUser from './components/CreateUser'
 import { getAllUsers, createUser } from './services/UserService'
 
@@ -19,6 +21,7 @@ function App() {
       createUser(user)
         .then(response => {
           console.log(response);
+          window.location.reload();
           setNumberOfUsers(numberOfUsers+1)
       });
   }
@@ -42,43 +45,55 @@ function App() {
   }, [])
 
   const onChangeForm = (e) => {
-      if (e.target.name === 'firstname') {
-          user.firstName = e.target.value;
-      } else if (e.target.name === 'lastname') {
-          user.lastName = e.target.value;
-      } else if (e.target.name === 'email') {
-          user.email = e.target.value;
-      }
+    console.log(e.target.value);
+    if(e.target.id=="resume"){
+      user.image = e.target.files[0];
+    }else{
+      user.event = e.target.value;
+    }
+      console.log(user);
       setUser(user)
   }
   
     
     return (
-        <div className="App">
-          <Header></Header>
-          <div className="container mrgnbtm">
-            <div className="row">
-              <div className="col-md-8">
-                  <CreateUser 
-                    user={user}
-                    onChangeForm={onChangeForm}
-                    createUser={userCreate}
-                    >
-                  </CreateUser>
-              </div>
-              <div className="col-md-4">
-                  <DisplayBoard
-                    numberOfUsers={numberOfUsers}
-                    getAllUsers={fetchAllUsers}
-                  >
-                  </DisplayBoard>
-              </div>
-            </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={  <div className="App">
+      <Header></Header>
+      <img src="https://i.ibb.co/hXLmpYh/banner.jpg" style={{width: "100%"}}/>
+      <div className="container mrgnbtm">
+
+      </div>
+      <div className="row mrgnbtm" style={{backgroundImage: 'url("http://www.nayanevents.com/images/ptn-bg.jpg")'}}>
+        <Users users={users}></Users>
+      </div>
+      <button style={{marginLeft:"900px",marginTop: "20px"}} onClick={() => window.location.replace("./add")}>Add Event</button>
+    
+    </div>}>
+        
+      </Route>
+      <Route path="/add" element={<div>
+        <Header></Header>
+        
+          <div className="col-md-8">
+              <CreateUser 
+                user={user}
+                onChangeForm={onChangeForm}
+                createUser={userCreate}
+                >
+              </CreateUser>
           </div>
-          <div className="row mrgnbtm">
-            <Users users={users}></Users>
-          </div>
-        </div>
+          <div className="row mrgnbtm" style={{backgroundImage: 'url("http://www.nayanevents.com/images/ptn-bg.jpg")'}}>
+        <Users users={users}></Users>
+        
+      </div>
+      
+        </div>}></Route>
+        <Route path="*" element={<Contact />} />
+    </Routes>
+
+  </BrowserRouter>
     );
 }
 

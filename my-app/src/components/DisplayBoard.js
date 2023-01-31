@@ -13,12 +13,12 @@ export const DisplayBoard = ({numberOfUsers, getAllUsers}) => {
     
     return(
         <div style={{backgroundColor:'green'}} className="display-board">
-            <h4 style={{color: 'white'}}>Users Created</h4>
+            <h4 style={{color: 'white'}}>Events Created</h4>
             <div className="number">
             {numberOfUsers}
             </div>
             <div className="btn">
-                <button type="button" onClick={(e) => getAllUsers()} className="btn btn-warning">Get all Users</button>
+                <button type="button" onClick={(e) => getAllUsers()} className="btn btn-warning">Get all Event</button>
             </div>
         </div>
     )

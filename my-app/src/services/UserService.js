@@ -1,8 +1,8 @@
-
+const URL= "http://localhost";
 export async function getAllUsers() {
 
     try{
-        const response = await fetch('/api/users');
+        const response = await fetch(URL+"/api/events");
         return await response.json();
     }catch(error) {
         return [];
@@ -10,11 +10,19 @@ export async function getAllUsers() {
     
 }
 
-export async function createUser(data) {
-    const response = await fetch(`/api/user`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user: data})
-      })
+export async function createUser(event) {
+    console.log(event);
+    var myHeaders = new Headers();
+    var formdata = new FormData();
+    
+    formdata.append("image", event.image, event.image.name);
+    formdata.append("event", event.event);
+    var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+    
+      };
+    const response= await fetch(URL+"/api/event", requestOptions)
     return await response.json();
 }

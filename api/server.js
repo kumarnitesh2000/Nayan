@@ -3,43 +3,78 @@ const path = require('path');
 const app = express(),
       bodyParser = require("body-parser");
       port = 80;
-
+let id=0;
+const config = {mongoURI: "<MONGO_URI_HERE>"}
+const cors = require("cors");
+app.use(cors());
 // place holder for the data
-const users = [
-  {
-    firstName: "first1",
-    lastName: "last1",
-    email: "abc@gmail.com"
-  },
-  {
-    firstName: "first2",
-    lastName: "last2",
-    email: "abc@gmail.com"
-  },
-  {
-    firstName: "first3",
-    lastName: "last3",
-    email: "abc@gmail.com"
-  }
-];
+const events = require("./evm");
+let mongoose = require('mongoose');
 
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../my-app/build')));
+const fileUpload = require("express-fileupload");
+connect()
+  .then(() => {
+    console.info("connected to mongo db");
+  })
+  .catch((err) => {
+    console.error(`not connected to mongo db due to ${err}`);
+  });
 
-app.get('/api/users', (req, res) => {
-  console.log('api/users called!')
-  res.json(users);
+function connect() {
+  return new Promise((resolve, reject) => {
+    mongoose
+      .connect(config.mongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
+      .then((res, err) => {
+        if (err) {
+          console.log("not connected");
+          return reject(err);
+        }
+        resolve(res);
+      })
+      .catch((err) => {
+        console.error(`not connected to mongo db due to ${err}`);
+      });
+  });
+}
+
+app.use(
+    fileUpload({
+        limits: {
+            fileSize: 10000000,
+        },
+        abortOnLimit: true,
+    })
+);
+app.use(express.static('../upload'));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
+app.use(express.json());
+
+app.get('/api/events', async (req, res) => {
+  console.log('api/events called!');
+  let r = await events.find({});
+  res.json(r);
 });
 
-app.post('/api/user', (req, res) => {
-  const user = req.body.user;
-  console.log('Adding user:::::', user);
-  users.push(user);
-  res.json("user addedd");
+app.post('/api/event', async (req, res) => {
+  const { image } = req.files;
+    if (!image) return res.sendStatus(400);
+    // console.info("save in "+path.join(__dirname,"..") + '/upload/' + image.name);
+    // Move the uploaded image to our upload folder
+    image.mv(path.join(__dirname,"..") + '/upload/' + image.name);
+    const { event } = req.body;
+    await events.create({event, image:image.name,id:id+1});
+  res.json("event addedd");
 });
 
-app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, '../my-app/build/index.html'));
+app.delete('/api/event', async (req, res) => {
+  const { id } = req.body;
+
+   await events.deleteOne({ _id: id })
+  res.json("event deleted");
 });
 
 app.listen(port, () => {
