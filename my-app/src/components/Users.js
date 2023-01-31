@@ -19,7 +19,6 @@ export const Users = ({ users }) => {
       body: raw,
       redirect: "follow",
     };
-
     let r = await fetch("http://localhost/api/event", requestOptions);
     let k = await r.json();
     window.location.reload();
