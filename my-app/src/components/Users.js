@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 export const Users = ({ users }) => {
   console.log("users length:::", users.length);
@@ -47,18 +48,29 @@ export const Users = ({ users }) => {
   const userTable = users.map((user, index) => UserRow(user, index));
 
   return (
-    <div
-      className="container"
-      style={{
-        backgroundImage: 'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
-        width: "100%",
-      }}
-    >
-      <h2>Events</h2>
-      <div className="container" style={{ display: "flex" }}>
-        {userTable}
-      </div>
-      {/* <a href="/add">Add Event</a> */}
-    </div>
+    <>
+      <Container fluid={true}>
+        <Row
+          style={{
+            backgroundImage:
+              'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
+          }}
+        >
+          <Col
+            className="h2"
+            style={{
+              fontFamily: "cursive",
+              textAlign: "center",
+            }}
+          >
+            Events
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ display: "flex" }}>{userTable}</Col>
+        </Row>
+        <div>{/* <a href="/add">Add Event</a> */}</div>
+      </Container>
+    </>
   );
 };

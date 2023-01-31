@@ -22,11 +22,24 @@ function Header() {
   const handleCloseBookPublishing = () => setShowBookPublishing(false);
   const handleShowBookPublishing = () => setShowBookPublishing(true);
   return (
-    <Navbar collapseOnSelect expand="lg" bg="lignt" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="lignt"
+      variant="dark"
+      style={{
+        backgroundImage: 'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
+      }}
+    >
       <Container>
-        {/* <Navbar.Brand href="#home">
-          <img src={shayar_logo} width={100} height={100} alt="Shayar_logo" />
-        </Navbar.Brand> */}
+        <Navbar.Brand href="#home">
+          <img
+            src="http://www.nayanevents.com/images/logo.png"
+            width={150}
+            height={80}
+            alt="Nayan Logo"
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -35,13 +48,7 @@ function Header() {
             </Nav.Link>
 
             <Nav.Link className="text-info mx-1">
-              <h5 onMouseMove={handleShowShayari}>
-                Shayari{" "}
-                {/* <span>
-                  <FaAngleDown />
-                </span> */}
-              </h5>
-
+              <h5 onMouseMove={handleShowShayari}>Shayari </h5>
               <Modal show={showShayari} onHide={handleCloseShayari} size="lg">
                 <Modal.Body className="show-grid">
                   <Container>
@@ -82,63 +89,12 @@ function Header() {
                         </Link>
                       </Col>
                     </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Love subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Sad subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Attitude subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Others subtype
-                        </Link>
-                      </Col>
-                    </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Love subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Sad subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Attitude subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/shayariPage" className="text-dark">
-                          Others subtype
-                        </Link>
-                      </Col>
-                    </Row>
                   </Container>
                 </Modal.Body>
               </Modal>
             </Nav.Link>
             <Nav.Link className="text-info mx-1">
-              <h5 onClick={handleShowBusiness}>
-                For Business{" "}
-                {/* <span>
-                  <FaAngleDown />
-                </span> */}
-              </h5>
+              <h5 onClick={handleShowBusiness}>About Us </h5>
 
               <Modal show={showBusiness} onHide={handleCloseBusiness} size="lg">
                 <Modal.Body className="show-grid">
@@ -180,59 +136,13 @@ function Header() {
                         </Link>
                       </Col>
                     </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 1 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 3 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 4 subtype
-                        </Link>
-                      </Col>
-                    </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 1 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 3 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/businesspage" className="text-dark">
-                          Business 4 subtype
-                        </Link>
-                      </Col>
-                    </Row>
                   </Container>
                 </Modal.Body>
               </Modal>
             </Nav.Link>
             <Nav.Link className="text-info mx-1">
               <h5 onClick={handleShowOpenMic}>
-                Open Mic{" "}
+                Gallery{" "}
                 {/* <span>
                   <FaAngleDown />
                 </span> */}
@@ -278,59 +188,13 @@ function Header() {
                         </Link>
                       </Col>
                     </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                    </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/openmic" className="text-dark">
-                          open mic 2 subtype
-                        </Link>
-                      </Col>
-                    </Row>
                   </Container>
                 </Modal.Body>
               </Modal>
             </Nav.Link>
             <Nav.Link className="text-info mx-1">
               <h5 onClick={handleShowBookPublishing}>
-                Book Publishing{" "}
+                Events{" "}
                 {/* <span>
                   <FaAngleDown />
                 </span> */}
@@ -381,58 +245,13 @@ function Header() {
                       </Col>
                     </Row>
                     <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 1 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 3 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 4 subtype
-                        </Link>
-                      </Col>
-                    </Row>
-                    <hr />
-                    <Row>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 1 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 2 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 3 subtype
-                        </Link>
-                      </Col>
-                      <Col xs={6} md={3}>
-                        <Link to="/bookpublishingpage" className="text-dark">
-                          BookPublishing 4 subtype
-                        </Link>
-                      </Col>
-                    </Row>
                   </Container>
                 </Modal.Body>
               </Modal>
             </Nav.Link>
             <Nav.Link className="text-info mx-1">
               <Link to="/earnwithus" className="text-info">
-                <h5>Earn with Us</h5>
+                <h5>Contact Us</h5>
               </Link>
             </Nav.Link>
           </Nav>
