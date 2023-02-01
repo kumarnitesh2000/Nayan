@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-
+import { Button, Col, Container, Row } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 export const Users = ({ users }) => {
   console.log("users length:::", users.length);
   if (users.length === 0) return null;
@@ -27,19 +28,49 @@ export const Users = ({ users }) => {
     console.log(user);
     return (
       <div style={{ margin: "20px" }}>
-        <h2>{user.event}</h2>
-        <img
-          src={`http://localhost/${user.image}`}
-          style={{ height: "200px", width: "200px", border: "1px solid black" }}
-        />
-        <br />
-        <button
-          style={{ margin: "20px" }}
-          id={user._id}
-          onClick={(e) => handleDelete(e)}
-        >
-          Delete Event
-        </button>
+        <Row lg={12}>
+          <Col>
+            <CardGroup
+              style={{
+                backgroundImage:
+                  'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
+              }}
+            >
+              {/* {user &&
+                user.map((index, id) => ( */}
+              <Card>
+                <Card.Img
+                  className="p-3 m-2"
+                  variant="top"
+                  src={`http://localhost/${user.image}`}
+                  style={{ width: 300, height: 200 }}
+                />
+                <Card.Body>
+                  <Card.Title
+                    style={{
+                      fontFamily: "cursive",
+                      textAlign: "center",
+                    }}
+                  >
+                    {user.event}
+                  </Card.Title>
+                  <Card.Text>
+                    We cover decor needs for all your events.
+                  </Card.Text>
+                  <Button
+                    className="btn-warning"
+                    style={{ margin: "20px" }}
+                    id={index._id}
+                    onClick={(e) => handleDelete(e)}
+                  >
+                    Delete Event
+                  </Button>
+                </Card.Body>
+              </Card>
+              {/* ))} */}
+            </CardGroup>
+          </Col>
+        </Row>
       </div>
     );
   };
