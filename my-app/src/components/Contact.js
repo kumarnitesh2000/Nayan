@@ -37,7 +37,7 @@ const Contact = () => {
         </Row>
         <Row className="text-center">
           <Col>
-            <Button className="btn-warning">Send Message</Button>
+            <Button className="btn-warning my-3">Send Message</Button>
           </Col>
         </Row>
       </Container>

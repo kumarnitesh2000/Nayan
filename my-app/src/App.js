@@ -256,7 +256,7 @@ function App() {
                     >
                       <Users users={users}></Users>
                       <Button
-                        className="btn-warning mt-2 mb-3"
+                        className="btn-warning my-4"
                         onClick={() => window.location.replace("./add")}
                       >
                         Add Event
@@ -266,11 +266,13 @@ function App() {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                    <Contact />
+                    <Contact  className="mt-3"/>
                   </Col>
                 </Row>
                 <Row>
-                  <Col lg={12}>{/* <Footer /> */}</Col>
+                  <Col lg={12}>
+                    <Footer />
+                  </Col>
                 </Row>
               </Container>
             </div>
