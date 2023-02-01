@@ -270,9 +270,7 @@ function App() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col lg={12}>
-                    {/* <Footer /> */}
-                  </Col>
+                  <Col lg={12}>{/* <Footer /> */}</Col>
                 </Row>
               </Container>
             </div>
@@ -283,7 +281,6 @@ function App() {
           element={
             <div>
               <Header />
-
               <div className="col-md-8">
                 <CreateUser
                   user={user}
