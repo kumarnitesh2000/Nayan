@@ -1,27 +1,43 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 const Contact = () => {
   return (
     <>
-      <Container>
+      <Container
+        style={{
+          backgroundImage:
+            'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
+        }}
+      >
         <Row lg={12}>
+          <Col lg={4}>
+            <FloatingLabel controlId="floatingTextarea" className="mb-3">
+              <Form.Control as="textarea" placeholder="Your Name" />
+            </FloatingLabel>
+          </Col>
+          <Col lg={4}>
+            <FloatingLabel controlId="floatingTextarea" className="mb-3">
+              <Form.Control type="email" placeholder="name@example.com" />
+            </FloatingLabel>
+          </Col>
+          <Col lg={4}>
+            <FloatingLabel controlId="floatingTextarea" className="mb-3">
+              <Form.Control type="tel" placeholder="Your Mobile Number" />
+            </FloatingLabel>
+          </Col>
+        </Row>
+        <Row>
           <Col lg={12}>
-            <FloatingLabel
-              controlId="floatingTextarea"
-              label="Comments"
-              className="mb-3"
-            >
-              <Form.Control as="textarea" placeholder="Leave a comment here" />
+            <FloatingLabel controlId="floatingTextarea" className="mb-3">
+              <Form.Control as="textarea" placeholder="Your Message" />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingTextarea2" label="Comments">
-              <Form.Control
-                as="textarea"
-                placeholder="Leave a comment here"
-                style={{ height: "100px" }}
-              />
-            </FloatingLabel>
+          </Col>
+        </Row>
+        <Row className="text-center">
+          <Col>
+            <Button className="btn-warning">Send Message</Button>
           </Col>
         </Row>
       </Container>

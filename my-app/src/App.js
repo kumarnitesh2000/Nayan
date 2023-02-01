@@ -4,12 +4,11 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Users } from "./components/Users";
-import { DisplayBoard } from "./components/DisplayBoard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
-import Contact from "./components/Contact"
+import Contact from "./components/Contact";
 import CreateUser from "./components/CreateUser";
 import { getAllUsers, createUser } from "./services/UserService";
 import { Button, Col, Container, Row } from "react-bootstrap";
@@ -257,8 +256,7 @@ function App() {
                     >
                       <Users users={users}></Users>
                       <Button
-                        className="btn-warning"
-                        style={{ margin: 2 }}
+                        className="btn-warning mt-2 mb-3"
                         onClick={() => window.location.replace("./add")}
                       >
                         Add Event
@@ -268,7 +266,12 @@ function App() {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                   <Contact />
+                    <Contact />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={12}>
+                    {/* <Footer /> */}
                   </Col>
                 </Row>
               </Container>

@@ -8,7 +8,7 @@ import {
   FaTwitterSquare,
   FaYoutubeSquare,
 } from "react-icons/fa";
-import { Modal, Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 const Footer = () => {
