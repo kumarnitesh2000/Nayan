@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
-import { Contact } from "./components/Contact";
+import Contact from "./components/Contact"
 import CreateUser from "./components/CreateUser";
 import { getAllUsers, createUser } from "./services/UserService";
 import { Button, Col, Container, Row } from "react-bootstrap";
@@ -248,7 +248,7 @@ function App() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col>
+                  <Col style={{ textAlign: "center" }}>
                     <div
                       style={{
                         backgroundImage:
@@ -256,13 +256,19 @@ function App() {
                       }}
                     >
                       <Users users={users}></Users>
+                      <Button
+                        className="btn-warning"
+                        style={{ margin: 2 }}
+                        onClick={() => window.location.replace("./add")}
+                      >
+                        Add Event
+                      </Button>
                     </div>
-                    <button
-                      style={{ marginLeft: "900px", marginTop: "20px" }}
-                      onClick={() => window.location.replace("./add")}
-                    >
-                      Add Event
-                    </button>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col lg={12}>
+                   <Contact />
                   </Col>
                 </Row>
               </Container>
@@ -293,7 +299,6 @@ function App() {
             </div>
           }
         ></Route>
-        <Route path="*" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
