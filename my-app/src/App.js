@@ -12,6 +12,10 @@ import Contact from "./components/Contact";
 import CreateUser from "./components/CreateUser";
 import { getAllUsers, createUser } from "./services/UserService";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import AboutUs from "./pages/AboutUs";
+import Gallery from "./pages/Gallery";
+import Events from "./pages/Events";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   const [user, setUser] = useState({});
@@ -266,7 +270,7 @@ function App() {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                    <Contact  className="mt-3"/>
+                    <Contact className="mt-3" />
                   </Col>
                 </Row>
                 <Row>
@@ -301,6 +305,10 @@ function App() {
             </div>
           }
         ></Route>
+        <Route path="aboutUs" element={<AboutUs />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="events" element={<Events />} />
+        <Route path="contactUs" element={<ContactUs />} />
       </Routes>
     </BrowserRouter>
   );
