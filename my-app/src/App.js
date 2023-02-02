@@ -16,7 +16,6 @@ import AboutUs from "./pages/AboutUs";
 import Gallery from "./pages/Gallery";
 import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
-
 function App() {
   const [user, setUser] = useState({});
   const [users, setUsers] = useState([]);
@@ -258,7 +257,7 @@ function App() {
                           'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
                       }}
                     >
-                      <Users users={users}></Users>
+                      <Users users={users} />
                       <Button
                         className="btn-warning my-4"
                         onClick={() => window.location.replace("./add")}
@@ -300,7 +299,7 @@ function App() {
                     'url("http://www.nayanevents.com/images/ptn-bg.jpg")',
                 }}
               >
-                <Users users={users}></Users>
+                <Users users={users} />
               </div>
             </div>
           }
