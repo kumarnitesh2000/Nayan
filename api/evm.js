@@ -4,9 +4,13 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  eventDescription: {
+    type: String,
+    require: true,
+  },
   image: {
-    type: String
-  }
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("eventr", eventSchema);
