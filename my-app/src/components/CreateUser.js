@@ -21,6 +21,17 @@ const CreateUser = ({ user, onChangeForm, createUser }) => {
                   aria-describedby="EventHelp"
                   placeholder="Event"
                 />
+                <Label htmlFor="exampleInputEvent1">Event Description</Label>
+                <Input
+                  type="text"
+                  onChange={(e) => onChangeForm(e)}
+                  className="form-control"
+                  name="eventDescription"
+                  value={user.eventDescription}
+                  id="eventDescription"
+                  aria-describedby="EventHelp"
+                  placeholder="Event Description"
+                />
                 <Label htmlFor="resume">Cover Image</Label>
                 <Input
                   type="file"

@@ -54,9 +54,7 @@ function Users({ users }) {
                   >
                     {user.event}
                   </Card.Title>
-                  <Card.Text>
-                    We cover decor needs for all your events.
-                  </Card.Text>
+                  <Card.Text>{user.eventDescription}</Card.Text>
                   <Button
                     className="btn-warning"
                     style={{ margin: "20px" }}

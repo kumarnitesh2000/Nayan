@@ -15,6 +15,7 @@ export async function createUser(event) {
 
   formdata.append("image", event.image, event.image.name);
   formdata.append("event", event.event);
+  formdata.append("eventDescription", event.eventDescription);
   var requestOptions = {
     method: "POST",
     headers: myHeaders,
