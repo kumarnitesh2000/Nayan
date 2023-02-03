@@ -1,22 +1,6 @@
 import React from "react";
 
-import {
-  Card,
-  CardBody,
-  Col,
-  Container,
-  Form,
-  Table,
-  Input,
-  Label,
-  NavItem,
-  NavLink,
-  Row,
-  Modal,
-  CardText,
-  TabContent,
-  TabPane,
-} from "reactstrap";
+import { Input, Label } from "reactstrap";
 const CreateUser = ({ user, onChangeForm, createUser }) => {
   return (
     <div className="container">
@@ -26,8 +10,8 @@ const CreateUser = ({ user, onChangeForm, createUser }) => {
           <form>
             <div className="row">
               <div className="form-group col-md-12">
-                <label htmlFor="exampleInputEvent1">Event</label>
-                <input
+                <Label htmlFor="exampleInputEvent1">Event</Label>
+                <Input
                   type="text"
                   onChange={(e) => onChangeForm(e)}
                   className="form-control"

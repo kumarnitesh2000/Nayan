@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Users } from "./components/Users";
+import Users from "./components/Users";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
@@ -291,7 +291,7 @@ function App() {
                   user={user}
                   onChangeForm={onChangeForm}
                   createUser={userCreate}
-                ></CreateUser>
+                />
               </div>
               <div
                 style={{

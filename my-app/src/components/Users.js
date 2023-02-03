@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
-export const Users = ({ users }) => {
+function Users({ users }) {
   console.log("users length:::", users.length);
   if (users.length === 0) return null;
   const handleDelete = async (e) => {
@@ -24,7 +24,7 @@ export const Users = ({ users }) => {
     let k = await r.json();
     window.location.reload();
   };
-  const UserRow = (user, index) => {
+  function UserRow(user, index) {
     console.log(user);
     return (
       <div style={{ margin: "20px" }}>
@@ -73,7 +73,7 @@ export const Users = ({ users }) => {
         </Row>
       </div>
     );
-  };
+  }
 
   const userTable = users.map((user, index) => UserRow(user, index));
 
@@ -103,4 +103,5 @@ export const Users = ({ users }) => {
       </Container>
     </>
   );
-};
+}
+export default Users;
