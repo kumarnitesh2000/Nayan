@@ -12,6 +12,7 @@ const cors = require("cors");
 app.use(cors());
 // place holder for the data
 const events = require("./evm");
+const eventDescription = require("./evm");
 let mongoose = require("mongoose");
 
 const fileUpload = require("express-fileupload");
@@ -69,7 +70,13 @@ app.post("/api/event", async (req, res) => {
   // Move the uploaded image to our upload folder
   image.mv(path.join(__dirname, "..") + "/upload/" + image.name);
   const { event } = req.body;
-  await events.create({ event, image: image.name, id: id + 1 });
+  const { eventDescription } = req.body;
+  await events.create({
+    event,
+    eventDescription,
+    image: image.name,
+    id: id + 1,
+  });
   res.json("event addedd");
 });
 
