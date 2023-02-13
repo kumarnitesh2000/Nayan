@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express(),
   bodyParser = require("body-parser");
-port = 80;
+port = 3000;
 let id = 0;
 const config = {
   mongoURI:
