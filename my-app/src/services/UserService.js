@@ -1,4 +1,4 @@
-const URL = "http://localhost";
+const URL = "";
 export async function getAllUsers() {
   try {
     const response = await fetch(URL + "/api/events");
